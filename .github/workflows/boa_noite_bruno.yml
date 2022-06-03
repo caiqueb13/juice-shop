@@ -39,9 +39,19 @@ jobs:
 
   bom-dia-bruno:
     name: Bom dia Bruno
-    needs: [ boa-noite-bruno ]
     runs-on: windows-latest
 
     steps:
       - name: Dizer bom dia
         run: echo 'Bom dia Bruno'
+
+  boa-tarde-bruno:
+    name: Boa tarde Bruno
+    needs:
+    - boa-noite-bruno
+    - bom-dia-bruno
+    runs-on: macos-latest
+
+    steps:
+      - name: Boa tarde Bruno
+        run: echo 'Boa tarde Bruno'
